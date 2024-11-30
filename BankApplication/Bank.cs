@@ -318,5 +318,23 @@ namespace BankApplication
 
         }
 
+        public void DisplayEveryUser()
+        {
+            if (Users == null) // (Users.Any())
+            {
+                foreach (var user in Users)
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance}");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("No Users have been found.");
+            }
+        }
+
     }
 }

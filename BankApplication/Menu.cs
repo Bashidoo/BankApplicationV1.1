@@ -59,7 +59,7 @@ namespace BankApplication
 
                         break;
                         case '5':
-
+                            _bank.DisplayEveryUser();
                             break;
                         case '6':
 
