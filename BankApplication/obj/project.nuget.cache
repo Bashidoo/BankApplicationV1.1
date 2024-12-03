@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cXpI2JPcjNM=",
+  "dgSpecHash": "ODKo8kvWiO4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Busher\\source\\repos\\BankApplication\\BankApplication.csproj",
+  "projectFilePath": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\BankApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Busher\\.nuget\\packages\\figgle\\0.5.1\\figgle.0.5.1.nupkg.sha512",
     "C:\\Users\\Busher\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",

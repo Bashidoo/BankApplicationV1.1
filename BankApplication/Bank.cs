@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,11 +10,28 @@ namespace BankApplication
 {
     public class Bank<T>
     {
-    public List<User<T>> Users { get; set; } = new List<User<T>>();
-         const double balance = 0;
+        public List<User<T>> Users { get; set; } = new List<User<T>>();
 
+        public User<T>? UserLoggingin(User<T> CurrentUserSession)
+        {
+            int userid = GetValidatedNumberInput("Please type User ID to Login:");
+            string userpassword = GetValidatedStringInput("Please type user password:");
+            var user = UserLogin(userid, userpassword, ref CurrentUserSession);
 
-        public User<T>? UserLogin(int id, string passWord)
+            if (user != null)
+            {
+                Console.WriteLine("User logged in succesfully.");
+                return user;
+
+            }
+            else
+            {
+                Console.WriteLine("Logging in failed. Please try again.");
+            }
+            return null;
+        }
+
+        public User<T>? UserLogin(int id, string passWord, ref User<T>? CurrentUserSession)
         {
             
 
@@ -22,13 +40,13 @@ namespace BankApplication
             while (running)
             {
 
-                User<T>? user = GetUserByIdGeneric<T>(id);
+                var user = Users.FirstOrDefault(x => x.Id == id && x.Password == passWord);
 
                 if (user != null)
                 {
                     if (user.Password == passWord && user.Id == id)
                     {
-                        User<T>.CurrentUser = user;
+                        CurrentUserSession = user;
                         running = false;
                         return user;
                         
@@ -130,12 +148,6 @@ namespace BankApplication
         public User<T>? GetUserByIdGeneric<T>(int id)
         {
             var userToFind = Users.OfType<User<T>>().FirstOrDefault(x => x.Id == id); // Selecting the user in the list.
-            if (Users == null || !Users.Any())
-            {
-                Console.WriteLine("No User is found with current ID. ID is available.");
-                return default;
-            }
-
 
             if (userToFind != null)
             {
@@ -162,7 +174,7 @@ namespace BankApplication
                 if (amount > 0)
                 {
                     CurrentUserSession.Balance += amount;
-                    Console.WriteLine($"Deposited: {amount:C}, New Balance: {balance:C}");
+                    Console.WriteLine($"Deposited: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
 
 
                 }

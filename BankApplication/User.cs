@@ -23,15 +23,18 @@ namespace BankApplication
 
         public double Balance { get; set; }
 
-        public static User<T>? CurrentUser { get; set; }
+        public User<T>? CurrentUserSession { get; set; }
+
+        public List<T> TransactionHistory { get; set; } = new List<T>(); // Add Transaction History logic.
 
 
-        public User(int id, string name, double cardnumber, double balance) 
+        public User(int id, string name, double cardnumber, double balance,string password) 
         {
             Id = id;
             Name = name;
             CardNumber = cardnumber;
-            balance = Balance;
+            Balance = balance;
+            Password = password;
         }
 
 
@@ -47,8 +50,10 @@ namespace BankApplication
             RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required.");
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");
             RuleFor(x => x.CardNumber).NotEmpty().WithMessage("CardNumber is required.");
-            // RuleFor(x => x.Balance).NotNull().WithMessage("Initial balance is required.");
+            RuleFor(x => x.Balance).NotNull().WithMessage("Initial balance is required.");
             RuleFor(x => x.Balance).NotEmpty().WithMessage("Initial balance is required.");
+            RuleFor(x => x.Password).NotEmpty().WithMessage("Password is Required.");
+
 
 
 

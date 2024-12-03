@@ -14,4 +14,10 @@
     <PackageReference Include="Stripe.net" Version="47.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

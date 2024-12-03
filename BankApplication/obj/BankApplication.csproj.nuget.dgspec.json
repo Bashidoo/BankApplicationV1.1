@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Busher\\source\\repos\\BankApplication\\BankApplication.csproj": {}
+    "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\BankApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Busher\\source\\repos\\BankApplication\\BankApplication.csproj": {
+    "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\BankApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Busher\\source\\repos\\BankApplication\\BankApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\BankApplication.csproj",
         "projectName": "BankApplication",
-        "projectPath": "C:\\Users\\Busher\\source\\repos\\BankApplication\\BankApplication.csproj",
+        "projectPath": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\BankApplication.csproj",
         "packagesPath": "C:\\Users\\Busher\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Busher\\source\\repos\\BankApplication\\obj\\",
+        "outputPath": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
