@@ -12,24 +12,6 @@ namespace BankApplication
     {
         public List<User<T>> Users { get; set; } = new List<User<T>>();
 
-        public User<T>? UserLoggingin(User<T> CurrentUserSession)
-        {
-            int userid = GetValidatedNumberInput("Please type User ID to Login:");
-            string userpassword = GetValidatedStringInput("Please type user password:");
-            var user = UserLogin(userid, userpassword, ref CurrentUserSession);
-
-            if (user != null)
-            {
-                Console.WriteLine("User logged in succesfully.");
-                return user;
-
-            }
-            else
-            {
-                Console.WriteLine("Logging in failed. Please try again.");
-            }
-            return null;
-        }
 
         public User<T>? UserLogin(int id, string passWord, ref User<T>? CurrentUserSession)
         {
@@ -332,7 +314,7 @@ namespace BankApplication
 
         public void DisplayEveryUser()
         {
-            if (Users == null) // (Users.Any())
+            if (Users != null) // (Users.Any())
             {
                 foreach (var user in Users)
                 {

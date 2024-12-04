@@ -25,3 +25,4 @@ C:\Users\Busher\Desktop\Github\Suii\BankApplicationV1.1\BankApplication\obj\Debu
 C:\Users\Busher\Desktop\Github\Suii\BankApplicationV1.1\BankApplication\obj\Debug\net8.0\BankApplication.pdb
 C:\Users\Busher\Desktop\Github\Suii\BankApplicationV1.1\BankApplication\obj\Debug\net8.0\BankApplication.genruntimeconfig.cache
 C:\Users\Busher\Desktop\Github\Suii\BankApplicationV1.1\BankApplication\obj\Debug\net8.0\ref\BankApplication.dll
+C:\Users\Busher\Desktop\Github\Suii\BankApplicationV1.1\BankApplication\bin\Debug\net8.0\data.json

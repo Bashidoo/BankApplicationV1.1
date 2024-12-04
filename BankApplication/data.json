@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "Id": 201050556,
-      "Name": "Busher Abo Dan",
+      "Balance": 42069,
       "CardNumber": 2682424,
-      "Balance": 42069
-    },
-
+      "Id": 20020105,
+      "Name": "Busher Abo Dan",
+      "Password": "AboDan"
+    }
   ]
 }

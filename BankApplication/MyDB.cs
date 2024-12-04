@@ -10,7 +10,7 @@ namespace BankApplication
     public class MyDB<T>
     {
         [JsonPropertyName("users")]
-        public List<User<T>> AllUsersFromDB { get; set; }
+        public List<User<T>> AllUsersFromDB { get; set; } = new List<User<T>>();
 
     }
 }

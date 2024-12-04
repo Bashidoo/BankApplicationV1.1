@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "Id": 20020105,
+      "Name": "Busher Abo Dan",
+      "Password": "AboDan",
+      "CardNumber": 2682424,
+      "Balance": 42069,
+      "CurrentUserSession": null,
+      "TransactionHistory": []
+    }
+  ]
+}
