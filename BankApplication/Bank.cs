@@ -13,11 +13,11 @@ namespace BankApplication
         public List<User<T>> Users { get; set; } = new List<User<T>>();
 
 
+
+
         public User<T>? UserLogin(int id, string passWord, ref User<T>? CurrentUserSession)
         {
             
-
-
             bool running = true;
             while (running)
             {
@@ -61,16 +61,14 @@ namespace BankApplication
             if (user == null)
             {
                 Console.WriteLine("Adding User Operation failed");
+                return;
             }
-            if (user != null)
+            else
             {
                 Console.WriteLine("User Added Successfully");
                 Users.Add(user);
             }
-            else
-            {
-                Console.WriteLine("Adding User Operation failed");
-            }
+
         }
 
         public void RemoveUser(int id)
@@ -144,15 +142,46 @@ namespace BankApplication
             
         }
 
+        public void TransferMoneyToUser(User<T> CurrentUserSession)
+        {
+            int recieverCardNumber = GetValidatedNumberInput("Please type cardnumber of the account you want to send money to. \n");
+
+            try
+            {
+                var RecieverAccount = Users.Where(x => x.Id == recieverCardNumber).ToList();
+                if (RecieverAccount.Any())
+                {
+                    foreach (var user in RecieverAccount)
+                    {
+
+                      double amount = GetValidatedDoubleNumberInput("\n Please enter amount of money you wish to transfer.");
+                      if (amount > 0)
+                      {
+                        CurrentUserSession.Balance -= amount;
+                        user.Balance += amount;
+
+                      }
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Reciever Account not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public void Deposit(User<T> CurrentUserSession) // Void was chosen because of no value returning due to lack of inheritance.
         {
-            Console.WriteLine();
-            Console.WriteLine("Enter deposit amount: ");
+          
 
-
+             double amount = GetValidatedDoubleNumberInput("\n Enter deposit amount: ");
             try // ask teacher for assistance in how to handle string exceptions
             {
-                double amount = Convert.ToDouble(Console.ReadLine());
                 if (amount > 0)
                 {
                     CurrentUserSession.Balance += amount;
@@ -264,6 +293,53 @@ namespace BankApplication
 
         }
 
+        public double GetValidatedDoubleNumberInput(string prompt)
+        {
+            double number;
+            while (true)
+            {
+                Console.Write(prompt);
+
+                string? input = Console.ReadLine();
+                try
+                {
+
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("You have entered nothing.");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        number = Convert.ToInt32(input);
+                        return number;
+                    }
+
+                }
+                catch (FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Please Enter a valid input.");
+                    Console.ResetColor();
+                }
+                catch (OverflowException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Number is too large.");
+                    Console.ResetColor();
+                }
+                catch (Exception e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Error: {e.Message}");
+                    Console.ResetColor();
+                }
+
+            }
+
+        }
+
         public string GetValidatedStringInput(string prompt)
         {
 
@@ -321,12 +397,15 @@ namespace BankApplication
 
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance}");
+                    Console.ResetColor();
                 }
 
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Users have been found.");
+                Console.ResetColor();
             }
         }
 

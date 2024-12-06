@@ -35,7 +35,7 @@ namespace BankApplication
             while (running)
 
             {
-            Console.WriteLine("Do you want to Create user(1) or Login(2) 1/2");
+            Console.WriteLine("Do you want to Create user(1) or Login(2) 1/2 or Exit(3).");
                 var choice = Console.ReadLine();
                 var menu = new Menu<int>(bank);
 
@@ -58,9 +58,13 @@ namespace BankApplication
                     }
                     else
                     {
-                        Console.WriteLine("Logging in failed exitting program.");
+                        Console.WriteLine("Logging in failed.");
                         
                     }
+                }
+                else if (choice == "3")
+                {
+                    break;
                 }
                 else
                 {
@@ -71,10 +75,10 @@ namespace BankApplication
 
             try
             {
-                string allDatafromJsonType = File.ReadAllText(dataJsonFilePath);
-                var myDB = new MyDB<int> { AllUsersFromDB = bank.Users };
+                var myDB = new MyDB<int> { AllUsersFromDB = bank.Users }; // Collect current state of users
                 string updatedDB = JsonSerializer.Serialize(myDB, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(dataJsonFilePath, updatedDB);
+                Console.WriteLine("Data saved successfully!");
             }
             catch (Exception ex)
             {

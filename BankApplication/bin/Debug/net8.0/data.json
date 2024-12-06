@@ -8,6 +8,15 @@
       "Balance": 42069,
       "CurrentUserSession": null,
       "TransactionHistory": []
+    },
+    {
+      "Id": 1,
+      "Name": "hazem",
+      "Password": "hazemabodan",
+      "CardNumber": 987654321,
+      "Balance": 300000,
+      "CurrentUserSession": null,
+      "TransactionHistory": []
     }
   ]
 }
