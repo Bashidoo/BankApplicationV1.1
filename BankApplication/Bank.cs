@@ -85,8 +85,10 @@ namespace BankApplication
             
         }
 
-        public void DisplayUserBalance(double cardnumber)
+        public void DisplayUserBalance()
         {
+            double cardnumber = GetValidatedDoubleNumberInput("Enter cardnumber to identify reciever account.");
+
             var userToFind = Users.Where(b => b.CardNumber == cardnumber); // Since the List has a generic attribute. It Cannot be  fetched from a single Linq Find, it should be FindALL because it returns a List<User>.
             if (userToFind.Any())
             {
@@ -95,6 +97,12 @@ namespace BankApplication
                     Console.WriteLine($" Name: {user.Name} \n ID:{user.Id}\n Balance: {user.Balance}");
                 }
 
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Reciever account not found!");
+                Console.ResetColor();
             }
         }
 
@@ -127,7 +135,7 @@ namespace BankApplication
 
         public User<T>? GetUserByIdGeneric(int id)
         {
-            var userToFind = Users.OfType<User<T>>().FirstOrDefault(x => x.Id == id); // Selecting the user in the list.
+            var userToFind = Users.FirstOrDefault(x => x.Id == id); // Selecting the user in the list.
 
             if (userToFind != null)
             {
@@ -142,16 +150,6 @@ namespace BankApplication
             
         }
 
-        public void registerTransactionHistory(double amount, User<T> account)
-        {
-
-            if (account != null)
-            {
-               
-
-            }
-            
-        }
 
         public void TransferMoneyToUser(User<T> CurrentUserSession)
         {
@@ -491,7 +489,10 @@ namespace BankApplication
 
             if (invoiceToPay != null)
             {
-                if (CurrentUserSession.Balance >= invoiceToPay.AmountToPay)
+                if (invoiceToPay.IsPayable == true)
+                {
+
+                if (CurrentUserSession.Balance > invoiceToPay.AmountToPay)
                 {
 
                     CurrentUserSession.Balance -= invoiceToPay.AmountToPay;
@@ -499,7 +500,20 @@ namespace BankApplication
                     Console.WriteLine("Invoice have been successfully paid!");
                 }
 
+                }
+                else
+                {
+                    Console.WriteLine("This invoice is already paid!");
+                }
 
+
+
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("No invoice found to pay.");
+                Console.ResetColor();
             }
                 // var user = Users.FirstOrDefault(x => x.Id == id && x.Password == passWord);
         }

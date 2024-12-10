@@ -39,8 +39,7 @@ namespace BankApplication
                     Console.WriteLine("6. Transfer money."); // Add function on credit card number. 
                     Console.WriteLine("7. Toggle Online payment."); // Attribute
                     Console.WriteLine("8. History of transactions."); // Date.Time List ----------- Work on Logic
-                    Console.WriteLine("9. Apply for a loan."); // Add function --------------- Work on Logic
-                    Console.WriteLine("10. Pay Invoice"); // Add Invoice logic with OCR number and Lists. ---------- Work on logic
+                    Console.WriteLine("9. Pay Invoice"); // Add Invoice logic with OCR number and Lists. ---------- Work on logic
 
 
                     var choice = Console.ReadKey().KeyChar;
@@ -55,28 +54,28 @@ namespace BankApplication
                         case '2':
                             _bank.Withdraw(CurrentUserSession);
                             break;
-
                         case '3':
                             _bank.DisplayBalance(CurrentUserSession);
                             break;
-
                         case '4':
                             Console.WriteLine("Exiting application...... Goodbye!");
                             CurrentUserSession = null;
                             running = false;
-
                             break;
                         case '5':
                             _bank.DisplayEveryUser();
                             break;
                         case '6':
-
+                            _bank.TransferMoneyToUser(CurrentUserSession);
                             break;
                         case '7':
-
+                            _bank.DisplayUserBalance();
                             break;
                         case '8':
-
+                            _bank.DisplayEveryTransaction(CurrentUserSession);
+                            break;
+                        case '9':
+                            _bank.PayInvoice(CurrentUserSession);
                             break;
 
 

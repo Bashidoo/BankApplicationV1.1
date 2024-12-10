@@ -21,6 +21,7 @@ namespace BankApplication
             {
                 string allDatafromJsonType = File.ReadAllText(dataJsonFilePath);
                 MyDB<int> myDB = JsonSerializer.Deserialize<MyDB<int>>(allDatafromJsonType)!;
+                bank.invoices.AddRange(myDB.AllInvoicesFromDB);
                 bank.Users.AddRange(myDB.AllUsersFromDB);
 
             }
@@ -77,7 +78,7 @@ namespace BankApplication
 
             try
             {
-                var myDB = new MyDB<int> { AllUsersFromDB = bank.Users }; // Collect current state of users
+                var myDB = new MyDB<int> { AllUsersFromDB = bank.Users, AllInvoicesFromDB = bank.invoices }; // Collect current state of users
                 string updatedDB = JsonSerializer.Serialize(myDB, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(dataJsonFilePath, updatedDB);
                 Console.WriteLine("Data saved successfully!");

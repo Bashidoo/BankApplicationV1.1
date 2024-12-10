@@ -1,13 +1,21 @@
 {
   "users": [
     {
+      "Balance": 42069,
+      "CardNumber": 2682424,
       "Id": 20020105,
       "Name": "Busher Abo Dan",
       "Password": "AboDan",
-      "CardNumber": 2682424,
-      "Balance": 42069,
-      "CurrentUserSession": null,
-      "TransactionHistory": []
+
+    }
+  ],
+  "invoices": [
+    {
+      "CompanyName": "AboDan.co",
+      "BankGiro": 2682424,
+      "OCR": 123456789,
+      "AmountToPay": 420,
+      "IsPayable":  true
     }
   ]
 }

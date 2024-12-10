@@ -23,6 +23,8 @@ namespace BankApplication
 
         public double Balance { get; set; }
 
+        public int CreditScore { get; set; }
+
         public User<T>? CurrentUserSession { get; set; }
 
         public List<Transaction> TransactionList { get; set; } = new List<Transaction>();

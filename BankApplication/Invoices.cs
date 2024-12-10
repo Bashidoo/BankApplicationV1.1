@@ -16,6 +16,8 @@ namespace BankApplication
 
         public double AmountToPay { get; set; }
 
+        public bool IsPayable { get; set; }
+
         public Invoices(string companyname, double bankgiro, double ocr, double amounttopay) 
         { 
             CompanyName = companyname;
