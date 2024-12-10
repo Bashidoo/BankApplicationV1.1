@@ -64,7 +64,9 @@ namespace BankApplication
                 }
                 else if (choice == "3")
                 {
-                    break;
+
+                    return;
+                    
                 }
                 else
                 {

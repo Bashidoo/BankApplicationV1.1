@@ -11,8 +11,8 @@ namespace BankApplication
     public class Bank<T>
     {
         public List<User<T>> Users { get; set; } = new List<User<T>>();
-
-
+        public List<Invoices> invoices { get; set; } = new List<Invoices>();
+        
 
 
         public User<T>? UserLogin(int id, string passWord, ref User<T>? CurrentUserSession)
@@ -73,7 +73,7 @@ namespace BankApplication
 
         public void RemoveUser(int id)
         {
-            User<T>? user = GetUserByIdGeneric<T>(id);
+            User<T>? user = GetUserByIdGeneric(id);
             if (user != null) 
             {
                 Users.Remove(user); 
@@ -116,7 +116,7 @@ namespace BankApplication
 
             if (userToFind != null)
             {
-                Console.WriteLine($"User with Name: {userToFind.Name}, ID: {userToFind.Id}");
+                Console.WriteLine($"User with Name: {userToFind.Name} \nID: {userToFind.Id} \nCardNumber: {userToFind.CardNumber} \nBalance: {userToFind.Balance}.");
             }
             else
             {
@@ -125,7 +125,7 @@ namespace BankApplication
 
         }
 
-        public User<T>? GetUserByIdGeneric<T>(int id)
+        public User<T>? GetUserByIdGeneric(int id)
         {
             var userToFind = Users.OfType<User<T>>().FirstOrDefault(x => x.Id == id); // Selecting the user in the list.
 
@@ -138,6 +138,17 @@ namespace BankApplication
             {
                 Console.WriteLine("User not found!");
                 return null;
+            }
+            
+        }
+
+        public void registerTransactionHistory(double amount, User<T> account)
+        {
+
+            if (account != null)
+            {
+               
+
             }
             
         }
@@ -155,11 +166,15 @@ namespace BankApplication
                     {
 
                       double amount = GetValidatedDoubleNumberInput("\n Please enter amount of money you wish to transfer.");
-                      if (amount > 0)
+                      if (amount > 0 && CurrentUserSession.Balance > amount)
                       {
                         CurrentUserSession.Balance -= amount;
                         user.Balance += amount;
 
+                      }
+                      else
+                      {
+                            Console.WriteLine("Insufficient funds, please type an eligible number according to your balance.");
                       }
 
                     }
@@ -175,7 +190,7 @@ namespace BankApplication
             }
         }
 
-        public void Deposit(User<T> CurrentUserSession) // Void was chosen because of no value returning due to lack of inheritance.
+        public void Deposit(User<T> CurrentUserSession) 
         {
           
 
@@ -187,7 +202,7 @@ namespace BankApplication
                     CurrentUserSession.Balance += amount;
                     Console.WriteLine($"Deposited: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
 
-
+                    CurrentUserSession.LogTransaction("Deposit", amount, CurrentUserSession.Balance, CurrentUserSession.Name);
                 }
                 else if (amount <= 0)
                 {
@@ -219,8 +234,10 @@ namespace BankApplication
                 {
                     if (amount <= CurrentUserSession.Balance)
                     {
-                         // balance -= amount;
+                        CurrentUserSession.Balance -= amount;
                         Console.WriteLine($"Withdrawn: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
+
+                        CurrentUserSession.LogTransaction("Withdraw", amount, CurrentUserSession.Balance, CurrentUserSession.Name);
                     }
                     else // Denna else gäller för if loop övanför
                     {
@@ -407,6 +424,84 @@ namespace BankApplication
                 Console.WriteLine("No Users have been found.");
                 Console.ResetColor();
             }
+        }
+        public void AddInvoice(User<T> CurrentUserSession)
+        {
+            string companyname = GetValidatedStringInput("Type Company Name:");
+            double bankgiro = GetValidatedDoubleNumberInput("Type BankGiro:");
+            double amountTopay = GetValidatedDoubleNumberInput("Type amount to pay");
+            double ocr = GetValidatedDoubleNumberInput("Type OCR or Reference number:");
+
+            var newInvoice = new Invoices(companyname,bankgiro, amountTopay, ocr);
+
+            var checkinvoice = invoices.FirstOrDefault(x => x.OCR == ocr);
+
+            if (checkinvoice == null)
+            {
+                invoices.Add(newInvoice);
+            }
+            else
+            {
+                Console.WriteLine("Invoice with same OCR Number found, please try anothe number.");
+            }
+        }
+
+        public void DisplayEveryTransaction(User<T> CurrentUserSession)
+        {
+            if (CurrentUserSession.TransactionList != null)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(CurrentUserSession.TransactionList);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("No transactions have been found.");
+                Console.ResetColor();
+            }
+        }
+
+
+        public void DisplayEveryInvoice()
+        {
+            if (invoices.Any())
+            {
+                foreach (var invoice in invoices)
+                {
+                    Console.WriteLine($"Name: {invoice.CompanyName}\n BankGiro: {invoice.BankGiro}\n To Pay: {invoice.AmountToPay}\n OCR: {invoice.OCR}");
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("No invoice have been found!.");
+                Console.ResetColor();
+            }
+        }
+
+        public void PayInvoice(User<T> CurrentUserSession)
+        {
+
+            double bankgiro = GetValidatedDoubleNumberInput(" Type BankGiro of following Invoice");
+            double amounttopay = GetValidatedDoubleNumberInput(" Type amount.");
+            double ocr = GetValidatedDoubleNumberInput("Type OCR or reference.");
+
+            var invoiceToPay = invoices.FirstOrDefault(x => x.BankGiro == bankgiro && x.AmountToPay == amounttopay && x.OCR == ocr);
+
+            if (invoiceToPay != null)
+            {
+                if (CurrentUserSession.Balance >= invoiceToPay.AmountToPay)
+                {
+
+                    CurrentUserSession.Balance -= invoiceToPay.AmountToPay;
+                    invoices.Remove(invoiceToPay);
+                    Console.WriteLine("Invoice have been successfully paid!");
+                }
+
+
+            }
+                // var user = Users.FirstOrDefault(x => x.Id == id && x.Password == passWord);
         }
 
     }

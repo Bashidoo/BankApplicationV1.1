@@ -25,7 +25,9 @@ namespace BankApplication
 
         public User<T>? CurrentUserSession { get; set; }
 
-        public List<T> TransactionHistory { get; set; } = new List<T>(); // Add Transaction History logic.
+        public List<Transaction> TransactionList { get; set; } = new List<Transaction>();
+
+
 
 
         public User(int id, string name, double cardnumber, double balance,string password) 
@@ -38,6 +40,11 @@ namespace BankApplication
         }
 
 
+        public void LogTransaction(string description,double amount, double afterbalance, string nameofuser)
+        {
+            
+            TransactionList.Add(new Transaction(description,nameofuser,DateTime.Now,amount, afterbalance));
+        }
 
 
     }

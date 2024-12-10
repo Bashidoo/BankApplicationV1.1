@@ -29,6 +29,8 @@ namespace BankApplication
 
                 while (running)
                 {
+
+                    Console.WriteLine($"Hello! {CurrentUserSession.Name}, Welcome to Abo Dan bank!");
                     Console.WriteLine("1. Deposit"); // ---
                     Console.WriteLine("2. Withdraw");  // ---
                     Console.WriteLine("3. Display Balance"); // Add logic and DisplayUserBalance
