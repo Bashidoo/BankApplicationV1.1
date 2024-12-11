@@ -23,7 +23,7 @@ namespace BankApplication
 
         public double Balance { get; set; }
 
-        public int CreditScore { get; set; }
+        public int CreditScore { get; set; } // Add logic.
 
         public User<T>? CurrentUserSession { get; set; }
 
@@ -39,6 +39,7 @@ namespace BankApplication
             CardNumber = cardnumber;
             Balance = balance;
             Password = password;
+            CreditScore = 750;
         }
 
 

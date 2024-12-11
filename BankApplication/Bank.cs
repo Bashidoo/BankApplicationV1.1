@@ -478,6 +478,41 @@ namespace BankApplication
             }
         }
 
+        public void ApplyForLoan(User<T> CurrentUserSession)
+        {
+            if (CurrentUserSession.CreditScore >= 750)
+            {
+                double amoutOfMoneyAsked = GetValidatedDoubleNumberInput("What is the required amount of money are you applying for?");
+                LoanCalculation(amoutOfMoneyAsked, CurrentUserSession);
+
+            }
+            else
+            {
+                Console.WriteLine($"User is not eligible for loan. Minimum credit score required to apply is 750. Please pay more invoices on time.\n Your credit score: {CurrentUserSession.CreditScore}");
+            }
+        }
+
+        public void LoanCalculation(double amoutOfMoneyAsked, User<T> CurrentUserSession)
+        {
+            const double CreditScoreValue = 1000.0;
+            int requiredCreditScorePoints = (int)Math.Ceiling(amoutOfMoneyAsked / CreditScoreValue);
+
+            if (CurrentUserSession.CreditScore >= requiredCreditScorePoints)
+            {
+                CurrentUserSession.CreditScore -= requiredCreditScorePoints;
+                amoutOfMoneyAsked += CurrentUserSession.Balance;
+                Console.WriteLine($"Operation Successful! New account balance is {CurrentUserSession.Balance}");
+               
+
+            }
+            else if (CurrentUserSession.CreditScore < requiredCreditScorePoints)
+            {
+                Console.WriteLine($"The amount you asked is too large for your credit score to handle.\n You have asked for: {amoutOfMoneyAsked} \n Your CreditScore: {CurrentUserSession.CreditScore}\n Required CreditScore: {requiredCreditScorePoints}");
+                
+            }
+            
+
+        }
         public void PayInvoice(User<T> CurrentUserSession)
         {
 
@@ -496,7 +531,7 @@ namespace BankApplication
                 {
 
                     CurrentUserSession.Balance -= invoiceToPay.AmountToPay;
-                    invoices.Remove(invoiceToPay);
+                    invoiceToPay.IsPayable = false;
                     Console.WriteLine("Invoice have been successfully paid!");
                 }
 
