@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -20,81 +21,70 @@ namespace BankApplication
         {
             if (CurrentUserSession == null)
             {
-                Console.WriteLine("You must be logged on to access the menu.");
+                AnsiConsole.MarkupLine("[red]You must be logged in to access the menu.[/]");
                 return;
-
             }
-            else
+
+            while (running)
             {
+                AnsiConsole.MarkupLine($"[green]Hello, {CurrentUserSession.Name}! Welcome to ABODAN Bank![/]");
+                var choice = AnsiConsole.Prompt(
+                    new SelectionPrompt<string>()
+                        .Title("[cyan]Select an option[/]:")
+                        .AddChoices(
+                            "Deposit",
+                            "Withdraw",
+                            "Display Balance",
+                            "Display All Users",
+                            "Transfer Money",
+                            "Toggle Online Payment",
+                            "Transaction History",
+                            "Pay Invoice",
+                            "Display All Invoices",
+                            "Exit"));
 
-                while (running)
+                switch (choice)
                 {
+                    case "Deposit":
+                        _bank.Deposit(CurrentUserSession);
+                        break;
 
-                    Console.WriteLine($"Hello! {CurrentUserSession.Name}, Welcome to Abo Dan bank!");
-                    Console.WriteLine("1. Deposit"); // ---
-                    Console.WriteLine("2. Withdraw");  // ---
-                    Console.WriteLine("3. Display Balance"); // Add logic and DisplayUserBalance
-                    Console.WriteLine("4. Exit, Logout."); // return;
-                    Console.WriteLine("5. Display all users information."); // Add logic
-                    Console.WriteLine("6. Transfer money."); // Add function on credit card number. 
-                    Console.WriteLine("7. Toggle Online payment."); // Attribute
-                    Console.WriteLine("8. History of transactions."); // Date.Time List ----------- Work on Logic
-                    Console.WriteLine("9. Pay Invoice"); // Add Invoice logic with OCR number and Lists. ---------- Work on logic
-                    Console.WriteLine("L. Apply for loan");
-                    Console.WriteLine("I. Display all invoices");
-                    Console.WriteLine("A. Create new user.");
+                    case "Withdraw":
+                        _bank.Withdraw(CurrentUserSession);
+                        break;
 
+                    case "Display Balance":
+                        _bank.DisplayBalance(CurrentUserSession);
+                        break;
 
-                    var choice = Console.ReadKey().KeyChar;
-                    // Add login page where you can register and login for user. 
+                    case "Display All Users":
+                        _bank.DisplayEveryUser();
+                        break;
 
-                    switch (choice)
-                    {
-                        case '1':
+                    case "Transfer Money":
+                        _bank.TransferMoneyToUser(CurrentUserSession);
+                        break;
 
-                            _bank.Deposit(CurrentUserSession);
-                            break;
-                        case '2':
-                            _bank.Withdraw(CurrentUserSession);
-                            break;
-                        case '3':
-                            _bank.DisplayBalance(CurrentUserSession);
-                            break;
-                        case '4':
-                            Console.WriteLine("Exiting application...... Goodbye!");
-                            CurrentUserSession = null;
-                            running = false;
-                            break;
-                        case '5':
-                            _bank.DisplayEveryUser();
-                            break;
-                        case '6':
-                            _bank.TransferMoneyToUser(CurrentUserSession);
-                            break;
-                        case '7':
-                            _bank.DisplayUserBalance();
-                            break;
-                        case '8':
-                            _bank.DisplayEveryTransaction(CurrentUserSession);
-                            break;
-                        case '9':
-                            _bank.PayInvoice(CurrentUserSession);
-                            break;
-                        case 'l':
-                            _bank.ApplyForLoan(CurrentUserSession);
-                            break;
-                        case 'i':
-                            _bank.DisplayEveryInvoice();
-                            break;
+                    case "Transaction History":
+                        _bank.DisplayEveryTransaction(CurrentUserSession);
+                        break;
 
+                    case "Pay Invoice":
+                        _bank.PayInvoice(CurrentUserSession);
+                        break;
 
-                    }
+                    case "Display All Invoices":
+                        _bank.DisplayEveryInvoice();
+                        break;
 
+                    case "Exit":
+                        AnsiConsole.MarkupLine("[green]Logging out... Goodbye![/]");
+                        running = false;
+                        break;
                 }
             }
-       
-
         }
+
 
 
         public void AskInfoForUserOBJ()
