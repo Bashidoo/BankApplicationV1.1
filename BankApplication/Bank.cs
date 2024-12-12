@@ -157,17 +157,19 @@ namespace BankApplication
 
             try
             {
-                var RecieverAccount = Users.Where(x => x.Id == recieverCardNumber).ToList();
-                if (RecieverAccount.Any())
-                {
-                    foreach (var user in RecieverAccount)
-                    {
+                // Can write FirstOrDefault, just for variance sake.
 
+                
+                var RecieverAccount = Users.FirstOrDefault(x => x.CardNumber == recieverCardNumber);
+                
+               
+                if (RecieverAccount != null)
+                {
                       double amount = GetValidatedDoubleNumberInput("\n Please enter amount of money you wish to transfer.");
                       if (amount > 0 && CurrentUserSession.Balance > amount)
                       {
                         CurrentUserSession.Balance -= amount;
-                        user.Balance += amount;
+                        RecieverAccount.Balance += amount;
 
                       }
                       else
@@ -175,12 +177,10 @@ namespace BankApplication
                             Console.WriteLine("Insufficient funds, please type an eligible number according to your balance.");
                       }
 
-                    }
+
                 }
-                else
-                {
-                    Console.WriteLine("Reciever Account not found.");
-                }
+                    
+
             }
             catch (Exception ex)
             {
