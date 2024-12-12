@@ -1,4 +1,5 @@
-﻿using Stripe;
+﻿using Spectre.Console;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -266,7 +267,7 @@ namespace BankApplication
             int number;
             while (true)
             {
-                Console.Write(prompt);
+                AnsiConsole.Markup($"{prompt} ");
 
                 string? input = Console.ReadLine();
                 try
@@ -275,7 +276,7 @@ namespace BankApplication
                     if (string.IsNullOrEmpty(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("You have entered nothing.");
+                        AnsiConsole.MarkupLine("[red]You have entered nothing.");
                         Console.ResetColor();
                     }
                     else
@@ -288,19 +289,19 @@ namespace BankApplication
                 catch (FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Please Enter a valid input.");
+                    AnsiConsole.MarkupLine("[red]Invalid input. Please enter a valid number.[/]");
                     Console.ResetColor();
                 }
                 catch (OverflowException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Number is too large.");
+                    AnsiConsole.MarkupLine("[red]Number is too large.");
                     Console.ResetColor();
                 }
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Error: {e.Message}");
+                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n");
                     Console.ResetColor();
                 }
 
@@ -313,42 +314,27 @@ namespace BankApplication
             double number;
             while (true)
             {
-                Console.Write(prompt);
+                AnsiConsole.Markup($"{prompt} ");
 
                 string? input = Console.ReadLine();
                 try
                 {
 
-                    if (string.IsNullOrEmpty(input))
+                    if (!string.IsNullOrEmpty(input))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("You have entered nothing.");
-                        Console.ResetColor();
-                    }
-                    else
-                    {
+
                         number = Convert.ToInt32(input);
                         return number;
+                       
                     }
 
+
                 }
-                catch (FormatException)
+                catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Please Enter a valid input.");
-                    Console.ResetColor();
-                }
-                catch (OverflowException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Number is too large.");
-                    Console.ResetColor();
-                }
-                catch (Exception e)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Error: {e.Message}");
-                    Console.ResetColor();
+                    // Escape exception message to prevent markup errors
+                    string escapedMessage = Markup.Escape(ex.Message);
+                    AnsiConsole.MarkupLine($"[red]Error: {escapedMessage}[/]");
                 }
 
             }
@@ -361,7 +347,7 @@ namespace BankApplication
             string convertedString;
             while (true)
             {
-                Console.Write(prompt);
+                AnsiConsole.Markup($"{prompt} ");
 
                 string? input = Console.ReadLine();
                 try
@@ -370,7 +356,7 @@ namespace BankApplication
                     if (string.IsNullOrEmpty(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("You have entered nothing.");
+                        AnsiConsole.MarkupLine("[red]You have entered nothing.");
                         Console.ResetColor();
                     }
                     else
@@ -383,19 +369,19 @@ namespace BankApplication
                 catch (FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Please Enter a valid input.");
+                    AnsiConsole.MarkupLine("[red]Please Enter a valid input.");
                     Console.ResetColor();
                 }
                 catch (OverflowException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Number is too large.");
+                    AnsiConsole.MarkupLine("[red]Number is too large.");
                     Console.ResetColor();
                 }
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Error: {e.Message}");
+                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n");
                     Console.ResetColor();
                 }
 
@@ -411,7 +397,7 @@ namespace BankApplication
                 {
 
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance}");
+                    Console.WriteLine($"ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance} \n Creditscore: {user.CreditScore}");
                     Console.ResetColor();
                 }
 
@@ -462,24 +448,38 @@ namespace BankApplication
 
         public void DisplayTransactions(User<T> CurrentUserSession)
         {
-
+            // Add Logic
         }
         public void DisplayEveryInvoice()
         {
             if (invoices.Any())
             {
+                var table = new Table()
+                    .Border(TableBorder.Rounded)
+                    .AddColumn("[yellow]Company Name[/]")
+                    .AddColumn("[yellow]Bank Giro[/]")
+                    .AddColumn("[yellow]OCR[/]")
+                    .AddColumn("[yellow]Amount To Pay[/]")
+                    .AddColumn("[yellow]Is Payable[/]");
+
                 foreach (var invoice in invoices)
                 {
-                    Console.WriteLine($"Name: {invoice.CompanyName}\n BankGiro: {invoice.BankGiro}\n To Pay: {invoice.AmountToPay}\n OCR: {invoice.OCR}");
+                    table.AddRow(
+                        invoice.CompanyName,
+                        invoice.BankGiro.ToString(),
+                        invoice.OCR.ToString(),
+                        invoice.AmountToPay.ToString("C"),
+                        invoice.IsPayable ? "[green]Yes[/]" : "[red]No[/]");
                 }
+
+                AnsiConsole.Write(table);
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("No invoice have been found!.");
-                Console.ResetColor();
+                AnsiConsole.MarkupLine("[red]No invoices found![/]");
             }
         }
+
 
         public void ApplyForLoan(User<T> CurrentUserSession)
         {
@@ -535,6 +535,9 @@ namespace BankApplication
 
                     CurrentUserSession.Balance -= invoiceToPay.AmountToPay;
                     invoiceToPay.IsPayable = false;
+                        double CreditScoreAfterPayingInvoice = invoiceToPay.AmountToPay / 10;
+                        double doubleUserCredit = CurrentUserSession.CreditScore;
+                        doubleUserCredit = + CreditScoreAfterPayingInvoice;
                     Console.WriteLine("Invoice have been successfully paid!");
                 }
 

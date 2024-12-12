@@ -27,7 +27,7 @@ namespace BankApplication
 
             while (running)
             {
-                AnsiConsole.MarkupLine($"[green]Hello, {CurrentUserSession.Name}! Welcome to ABODAN Bank![/]");
+                AnsiConsole.MarkupLine($"\n[green]Hello, {CurrentUserSession.Name}! Welcome to ABODAN Bank![/]");
                 var choice = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
                         .Title("[cyan]Select an option[/]:")
@@ -41,7 +41,7 @@ namespace BankApplication
                             "Transaction History",
                             "Pay Invoice",
                             "Display All Invoices",
-                            "Exit"));
+                            "Exit/Logout"));
 
                 switch (choice)
                 {
@@ -77,7 +77,7 @@ namespace BankApplication
                         _bank.DisplayEveryInvoice();
                         break;
 
-                    case "Exit":
+                    case "Exit/Logout":
                         AnsiConsole.MarkupLine("[green]Logging out... Goodbye![/]");
                         running = false;
                         break;
