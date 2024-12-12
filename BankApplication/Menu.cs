@@ -34,12 +34,15 @@ namespace BankApplication
                     Console.WriteLine("1. Deposit"); // ---
                     Console.WriteLine("2. Withdraw");  // ---
                     Console.WriteLine("3. Display Balance"); // Add logic and DisplayUserBalance
-                    Console.WriteLine("4. Exit"); // return;
-                    Console.WriteLine("5. Display all Users Information."); // Add logic
+                    Console.WriteLine("4. Exit, Logout."); // return;
+                    Console.WriteLine("5. Display all users information."); // Add logic
                     Console.WriteLine("6. Transfer money."); // Add function on credit card number. 
                     Console.WriteLine("7. Toggle Online payment."); // Attribute
                     Console.WriteLine("8. History of transactions."); // Date.Time List ----------- Work on Logic
                     Console.WriteLine("9. Pay Invoice"); // Add Invoice logic with OCR number and Lists. ---------- Work on logic
+                    Console.WriteLine("L. Apply for loan");
+                    Console.WriteLine("I. Display all invoices");
+                    Console.WriteLine("A. Create new user.");
 
 
                     var choice = Console.ReadKey().KeyChar;
@@ -77,7 +80,12 @@ namespace BankApplication
                         case '9':
                             _bank.PayInvoice(CurrentUserSession);
                             break;
-
+                        case 'l':
+                            _bank.ApplyForLoan(CurrentUserSession);
+                            break;
+                        case 'i':
+                            _bank.DisplayEveryInvoice();
+                            break;
 
 
                     }

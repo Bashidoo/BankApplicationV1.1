@@ -12,7 +12,7 @@ namespace BankApplication
         [JsonPropertyName("users")]
         public List<User<T>> AllUsersFromDB { get; set; } = new List<User<T>>();
 
-        [JsonPropertyName("invoice")]
+        [JsonPropertyName("invoices")]
 
         public List<Invoices> AllInvoicesFromDB { get; set;} = new List<Invoices>();
 

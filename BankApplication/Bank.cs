@@ -460,7 +460,10 @@ namespace BankApplication
             }
         }
 
+        public void DisplayTransactions(User<T> CurrentUserSession)
+        {
 
+        }
         public void DisplayEveryInvoice()
         {
             if (invoices.Any())
@@ -500,7 +503,7 @@ namespace BankApplication
             if (CurrentUserSession.CreditScore >= requiredCreditScorePoints)
             {
                 CurrentUserSession.CreditScore -= requiredCreditScorePoints;
-                amoutOfMoneyAsked += CurrentUserSession.Balance;
+                 CurrentUserSession.Balance += amoutOfMoneyAsked;
                 Console.WriteLine($"Operation Successful! New account balance is {CurrentUserSession.Balance}");
                
 
