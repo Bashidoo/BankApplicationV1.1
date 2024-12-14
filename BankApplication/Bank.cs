@@ -190,7 +190,7 @@ namespace BankApplication
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                AnsiConsole.MarkupLine($"[red]{ex.Message}");
             }
         }
 
@@ -239,7 +239,7 @@ namespace BankApplication
                     if (amount <= CurrentUserSession.Balance)
                     {
                         CurrentUserSession.Balance -= amount;
-                        Console.WriteLine($"Withdrawn: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
+                        AnsiConsole.MarkupLine($"[green]Withdrawn: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
 
                         CurrentUserSession.LogTransaction("Withdraw", amount, CurrentUserSession.Balance, CurrentUserSession.Name);
                     }
@@ -373,21 +373,21 @@ namespace BankApplication
                 }
                 catch (FormatException)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                   
                     AnsiConsole.MarkupLine("[red]Please Enter a valid input.");
-                    Console.ResetColor();
+                
                 }
                 catch (OverflowException)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    
                     AnsiConsole.MarkupLine("[red]Number is too large.");
-                    Console.ResetColor();
+                    
                 }
                 catch (Exception e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    
                     AnsiConsole.MarkupLine("[red]Error: {e.Message}\n");
-                    Console.ResetColor();
+                  
                 }
 
             }
@@ -545,13 +545,13 @@ namespace BankApplication
                         double CreditScoreAfterPayingInvoice = invoiceToPay.AmountToPay / 10;
                         double doubleUserCredit = CurrentUserSession.CreditScore;
                         doubleUserCredit = + CreditScoreAfterPayingInvoice;
-                    Console.WriteLine("Invoice have been successfully paid!");
+                        AnsiConsole.MarkupLine($"[green]Invoice have been successfully paid!");
                 }
 
                 }
                 else
                 {
-                    Console.WriteLine("This invoice is already paid!");
+                    AnsiConsole.MarkupLine($"[red] This invoice is already paid!");
                 }
 
 
@@ -559,9 +559,8 @@ namespace BankApplication
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("No invoice found to pay.");
-                Console.ResetColor();
+                AnsiConsole.MarkupLine($"[red]No invoice found to pay.");
+               
             }
                 // var user = Users.FirstOrDefault(x => x.Id == id && x.Password == passWord);
         }
