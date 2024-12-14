@@ -38,7 +38,7 @@ namespace BankApplication
                     }
                     else
                     {
-                        AnsiConsole.MarkupLine($"[red]Incorrect details, please try another password or username.");
+                        AnsiConsole.MarkupLine($"[red]Incorrect details, please try another password or username.[/]");
                         return null;
                     }
                     
@@ -47,7 +47,7 @@ namespace BankApplication
 
                 if (user == null)
                 {
-                    AnsiConsole.MarkupLine($"[red]User not found Please try again.");
+                    AnsiConsole.MarkupLine($"[red]User not found Please try again.[/]");
 
                     return null;
 
@@ -62,7 +62,7 @@ namespace BankApplication
         {
             if (user == null)
             {
-                AnsiConsole.MarkupLine($"[red]Adding User Operation failed");
+                AnsiConsole.MarkupLine($"[red]Adding User Operation failed[/]");
                 return;
             }
 
@@ -70,8 +70,8 @@ namespace BankApplication
 
             else
             {
-                AnsiConsole.MarkupLine($"[green]User Added Successfully");
                 Users.Add(user);
+                AnsiConsole.MarkupLine($"[green] User Added Successfully[/]");
             }
 
         }
@@ -82,32 +82,32 @@ namespace BankApplication
             if (user != null) 
             {
                 Users.Remove(user);
-                AnsiConsole.MarkupLine($"[green] User removed!");
+                AnsiConsole.MarkupLine($"[green] User removed![/]");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]User not found.");
+                AnsiConsole.MarkupLine($"[red]User not found.[/]");
             }
             
         }
 
         public void DisplayUserBalance()
         {
-            double cardnumber = GetValidatedDoubleNumberInput("Enter cardnumber to identify reciever account.");
+            double cardnumber = GetValidatedDoubleNumberInput("Enter cardnumber to identify reciever account.[/]");
 
             var userToFind = Users.Where(b => b.CardNumber == cardnumber); // Since the List has a generic attribute. It Cannot be  fetched from a single Linq Find, it should be FindALL because it returns a List<User>.
             if (userToFind.Any())
             {
                 foreach (var user in userToFind)
                 {
-                    Console.WriteLine($" Name: {user.Name} \n ID:{user.Id}\n Balance: {user.Balance}");
+                    AnsiConsole.MarkupLine($"[green]Name: {user.Name} \n ID:{user.Id}\n Balance: {user.Balance}[/]");
                 }
 
             }
             else
             {
 
-                AnsiConsole.MarkupLine($"[red]Reciever account not found!");
+                AnsiConsole.MarkupLine($"[red]Reciever account not found![/]");
                 
             }
         }
@@ -145,12 +145,12 @@ namespace BankApplication
 
             if (userToFind != null)
             {
-                Console.WriteLine($"User with Name: {userToFind.Name}, ID: {userToFind.Id}");
+                AnsiConsole.MarkupLine($"[green] {userToFind.Name}, ID: {userToFind.Id}[/]");
                 return userToFind;
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]User not found!");
+                AnsiConsole.MarkupLine($"[red]User not found![/]");
                 return null;
             }
             
@@ -180,7 +180,7 @@ namespace BankApplication
                       }
                       else
                       {
-                        AnsiConsole.MarkupLine($"[red]Insufficient funds, please type an eligible number according to your balance.");
+                        AnsiConsole.MarkupLine($"[red]Insufficient funds, please type an eligible number according to your balance.[/]");
                       }
 
 
@@ -190,7 +190,7 @@ namespace BankApplication
             }
             catch (Exception ex)
             {
-                AnsiConsole.MarkupLine($"[red]{ex.Message}");
+                AnsiConsole.MarkupLine($"[red]{ex.Message}[/]");
             }
         }
 
@@ -204,20 +204,20 @@ namespace BankApplication
                 if (amount > 0)
                 {
                     CurrentUserSession.Balance += amount;
-                    AnsiConsole.MarkupLine($"[green]Deposited: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
+                    AnsiConsole.MarkupLine($"[green]Deposited: {amount:C}, New Balance: {CurrentUserSession.Balance:C}[/]");
 
                     CurrentUserSession.LogTransaction("Deposit", amount, CurrentUserSession.Balance, CurrentUserSession.Name);
                 }
                 else if (amount <= 0)
                 {
-                    AnsiConsole.MarkupLine($"[red]Desired amount: {amount:C}, cannot be desposited");
+                    AnsiConsole.MarkupLine($"[red]Desired amount: {amount:C}, cannot be desposited[/]");
                 }
 
             }
 
             catch (Exception e) // ask teacher for assistance in how to handle string exceptions
             {
-                AnsiConsole.MarkupLine($"[red]Wrong Input, please type a number, reason for error:");
+                AnsiConsole.MarkupLine($"[red]Wrong Input, please type a number, reason for error:[/]");
                 Console.Write(e.Message);
             }
 
@@ -239,25 +239,25 @@ namespace BankApplication
                     if (amount <= CurrentUserSession.Balance)
                     {
                         CurrentUserSession.Balance -= amount;
-                        AnsiConsole.MarkupLine($"[green]Withdrawn: {amount:C}, New Balance: {CurrentUserSession.Balance:C}");
+                        AnsiConsole.MarkupLine($"[green]Withdrawn: {amount:C}, New Balance: {CurrentUserSession.Balance:C}[/]");
 
                         CurrentUserSession.LogTransaction("Withdraw", amount, CurrentUserSession.Balance, CurrentUserSession.Name);
                     }
                     else // Denna else gäller för if loop övanför
                     {
-                        AnsiConsole.MarkupLine($"[red]Insufficient money.");
+                        AnsiConsole.MarkupLine($"[red]Insufficient money.[/]");
                     }
                 }
                 else // gäller för först If loop om x > 0
                 {
-                    AnsiConsole.MarkupLine($"[red] Invalid Input please enter a number higher than zero");
+                    AnsiConsole.MarkupLine($"[red] Invalid Input please enter a number higher than zero[/]");
                 }
 
             }
             catch (Exception e)
             {
-                AnsiConsole.MarkupLine($"[red]Wrong Input, please type a number, reason for error:");
-                AnsiConsole.MarkupLine($"[red]{e.Message}");
+                AnsiConsole.MarkupLine($"[red]Wrong Input, please type a number, reason for error:[/]");
+                AnsiConsole.MarkupLine($"[red]{e.Message}[/]");
             }
 
         }
@@ -281,7 +281,7 @@ namespace BankApplication
                     if (string.IsNullOrEmpty(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        AnsiConsole.MarkupLine("[red]You have entered nothing.");
+                        AnsiConsole.MarkupLine("[red]You have entered nothing.[/]");
                         Console.ResetColor();
                     }
                     else
@@ -300,13 +300,13 @@ namespace BankApplication
                 catch (OverflowException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    AnsiConsole.MarkupLine("[red]Number is too large.");
+                    AnsiConsole.MarkupLine("[red]Number is too large.[/]");
                     Console.ResetColor();
                 }
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n");
+                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n[/]");
                     Console.ResetColor();
                 }
 
@@ -361,7 +361,7 @@ namespace BankApplication
                     if (string.IsNullOrEmpty(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        AnsiConsole.MarkupLine("[red]You have entered nothing.");
+                        AnsiConsole.MarkupLine("[red]You have entered nothing.[/]");
                         Console.ResetColor();
                     }
                     else
@@ -374,19 +374,19 @@ namespace BankApplication
                 catch (FormatException)
                 {
                    
-                    AnsiConsole.MarkupLine("[red]Please Enter a valid input.");
+                    AnsiConsole.MarkupLine("[red]Please Enter a valid input.[/]");
                 
                 }
                 catch (OverflowException)
                 {
                     
-                    AnsiConsole.MarkupLine("[red]Number is too large.");
+                    AnsiConsole.MarkupLine("[red]Number is too large.[/]");
                     
                 }
                 catch (Exception e)
                 {
                     
-                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n");
+                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n[/]");
                   
                 }
 
@@ -402,7 +402,7 @@ namespace BankApplication
                 {
 
 
-                    AnsiConsole.MarkupLine($"[green]ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance} \n Creditscore: {user.CreditScore}");
+                    AnsiConsole.MarkupLine($"[green]ID:{user.Id}\n Name: {user.Name}\n CardNumber: {user.CardNumber}\n Balance: {user.Balance} \n Creditscore: {user.CreditScore}[/]");
                     
                 }
 
@@ -410,7 +410,7 @@ namespace BankApplication
             else
             {
                 
-                AnsiConsole.MarkupLine($"[red]No Users have been found.");
+                AnsiConsole.MarkupLine($"[red]No Users have been found.[/]");
                 
             }
         }
@@ -428,11 +428,11 @@ namespace BankApplication
             if (checkinvoice == null)
             {
                 invoices.Add(newInvoice);
-                AnsiConsole.MarkupLine($"[green] Invoice has been created successfully!");
+                AnsiConsole.MarkupLine($"[green] Invoice has been created successfully![/]");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]Invoice with same OCR Number found, please try anothe number.");
+                AnsiConsole.MarkupLine($"[red]Invoice with same OCR Number found, please try anothe number.[/]");
             }
         }
 
@@ -441,14 +441,14 @@ namespace BankApplication
             if (CurrentUserSession.TransactionList != null)
             {
 
-                AnsiConsole.MarkupLine($"[green]{CurrentUserSession.TransactionList}");
+                AnsiConsole.MarkupLine($"[green]{CurrentUserSession.TransactionList}[/]");
 
 
             }
             else
             {
                 
-                AnsiConsole.MarkupLine($"[red]No transactions have been found.");
+                AnsiConsole.MarkupLine($"[red]No transactions have been found.[/]");
                 
             }
         }
@@ -545,13 +545,13 @@ namespace BankApplication
                         double CreditScoreAfterPayingInvoice = invoiceToPay.AmountToPay / 10;
                         double doubleUserCredit = CurrentUserSession.CreditScore;
                         doubleUserCredit = + CreditScoreAfterPayingInvoice;
-                        AnsiConsole.MarkupLine($"[green]Invoice have been successfully paid!");
+                        AnsiConsole.MarkupLine($"[green]Invoice have been successfully paid![/]");
                 }
 
                 }
                 else
                 {
-                    AnsiConsole.MarkupLine($"[red] This invoice is already paid!");
+                    AnsiConsole.MarkupLine($"[red] This invoice is already paid![/]");
                 }
 
 
@@ -559,7 +559,7 @@ namespace BankApplication
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]No invoice found to pay.");
+                AnsiConsole.MarkupLine($"[red]No invoice found to pay.[/]");
                
             }
                 // var user = Users.FirstOrDefault(x => x.Id == id && x.Password == passWord);

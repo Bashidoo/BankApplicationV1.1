@@ -96,8 +96,8 @@ namespace BankApplication
             int id = _bank.GetValidatedNumberInput("Please type your ID:");
             string? name = _bank.GetValidatedStringInput("Please type your name:");
             double cardnumber = _bank.GetValidatedNumberInput("Please type your desired cardnumber:");
-            double balance = _bank.GetValidatedDoubleNumberInput("Please type desired balance.");
-            string? password = _bank.GetValidatedStringInput("Please type your desired password");
+            double balance = _bank.GetValidatedDoubleNumberInput("Please type desired balance:");
+            string? password = _bank.GetValidatedStringInput("Please type your desired password:");
 
 
             var newUser = new User<T>(id, name, cardnumber, balance, password);
@@ -113,14 +113,11 @@ namespace BankApplication
                 return;
             }
 
-
-              if (newUser != null)
-              {
+           
 
                 _bank.AddUser(newUser);
-               
-
-              }
+              
+              
 
 
         }
