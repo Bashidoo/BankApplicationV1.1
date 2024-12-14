@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -84,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Invoices.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Invoices.cs",
               "RelativeDocumentMoniker": "Invoices.cs",
@@ -92,18 +92,17 @@
               "RelativeToolTip": "Invoices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T17:35:05.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T17:35:05.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Bank.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Bank.cs",
               "RelativeDocumentMoniker": "Bank.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Bank.cs",
               "RelativeToolTip": "Bank.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACkAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAK0BAAAAAAAAAAAAALsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T04:06:02.033Z",
               "EditorCaption": ""
@@ -122,15 +121,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Menu.cs",
               "RelativeToolTip": "Menu.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGAAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T03:45:45.017Z"
+              "WhenOpened": "2024-11-16T03:45:45.017Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

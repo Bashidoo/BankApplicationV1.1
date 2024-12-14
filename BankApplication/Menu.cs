@@ -67,7 +67,7 @@ namespace BankApplication
                         break;
 
                     case "Transaction History":
-                        _bank.DisplayEveryTransaction(CurrentUserSession);
+                        _bank.DisplayTransactions(CurrentUserSession);
                         break;
 
                     case "Pay Invoice":

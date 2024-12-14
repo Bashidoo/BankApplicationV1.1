@@ -436,26 +436,25 @@ namespace BankApplication
             }
         }
 
-        public void DisplayEveryTransaction(User<T> CurrentUserSession)
-        {
-            if (CurrentUserSession.TransactionList != null)
-            {
 
-                AnsiConsole.MarkupLine($"[green]{CurrentUserSession.TransactionList}[/]");
-
-
-            }
-            else
-            {
-                
-                AnsiConsole.MarkupLine($"[red]No transactions have been found.[/]");
-                
-            }
-        }
 
         public void DisplayTransactions(User<T> CurrentUserSession)
         {
-            // Add Logic
+            
+
+            if (CurrentUserSession.TransactionList.Any()) 
+            {
+
+                foreach (var transaction in CurrentUserSession.TransactionList)
+                {
+
+                    AnsiConsole.MarkupLine( $"{transaction}");
+                }
+            }
+            else
+            {
+                AnsiConsole.MarkupLine($"[red]No transactions have been found.[/]");
+            }
         }
         public void DisplayEveryInvoice()
         {
