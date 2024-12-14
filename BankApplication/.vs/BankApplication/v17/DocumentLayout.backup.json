@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,21 +46,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\User.cs",
-              "RelativeDocumentMoniker": "User.cs",
-              "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\User.cs",
-              "RelativeToolTip": "User.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABkAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T03:45:12.16Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "data.json",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\data.json",
               "RelativeDocumentMoniker": "data.json",
@@ -74,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "MyDB.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\MyDB.cs",
               "RelativeDocumentMoniker": "MyDB.cs",
@@ -83,11 +69,25 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T13:23:18.465Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\User.cs",
+              "RelativeDocumentMoniker": "User.cs",
+              "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\User.cs",
+              "RelativeToolTip": "User.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T03:01:18.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Invoices.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Invoices.cs",
               "RelativeDocumentMoniker": "Invoices.cs",
@@ -106,14 +106,14 @@
               "RelativeDocumentMoniker": "Bank.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Bank.cs",
               "RelativeToolTip": "Bank.cs",
-              "ViewState": "AgIAAAECAAAAAAAAAAA9wBwCAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8BAAAAAAAAAAAAAMMBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T04:06:02.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Transaction.cs",
               "RelativeDocumentMoniker": "Transaction.cs",
@@ -121,24 +121,25 @@
               "RelativeToolTip": "Transaction.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAA7wBMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T13:59:33.466Z"
+              "WhenOpened": "2024-12-07T13:59:33.466Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Menu.cs",
               "RelativeToolTip": "Menu.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAEsAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAHcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-16T03:45:45.017Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

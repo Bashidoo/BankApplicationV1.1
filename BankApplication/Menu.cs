@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
 
 namespace BankApplication
 {
@@ -100,13 +101,26 @@ namespace BankApplication
 
 
             var newUser = new User<T>(id, name, cardnumber, balance, password);
+            var validator = new UserValidator<T>();
+            var validatorResult = validator.Validate(newUser);
 
-            if (newUser != null)
+            if (!validatorResult.IsValid)
             {
+                foreach (var error in validatorResult.Errors)
+                {
+                    AnsiConsole.MarkupLine($"[red]{validatorResult.Errors}");
+                }
+                return;
+            }
+
+
+              if (newUser != null)
+              {
 
                 _bank.AddUser(newUser);
+               
 
-            }
+              }
 
 
         }

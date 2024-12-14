@@ -58,9 +58,9 @@ namespace BankApplication
     }
 
 
-    public abstract class BaseValidator<T> : AbstractValidator<T> where T : User<T>
+    public class UserValidator<T> : AbstractValidator<User<T>>
     {
-        protected BaseValidator()
+        public UserValidator()
         {
             RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required.");
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");
