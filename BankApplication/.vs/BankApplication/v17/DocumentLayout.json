@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:mydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|c:\\users\\busher\\desktop\\github\\suii\\bankapplicationv1.1\\bankapplication\\invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC04989A-7B4F-4E02-8580-B63257656A31}|BankApplication.csproj|solutionrelative:invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "data.json",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\data.json",
               "RelativeDocumentMoniker": "data.json",
@@ -59,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MyDB.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\MyDB.cs",
               "RelativeDocumentMoniker": "MyDB.cs",
@@ -72,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\User.cs",
               "RelativeDocumentMoniker": "User.cs",
@@ -84,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Invoices.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Invoices.cs",
               "RelativeDocumentMoniker": "Invoices.cs",
@@ -92,7 +92,8 @@
               "RelativeToolTip": "Invoices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T17:35:05.457Z"
+              "WhenOpened": "2024-12-06T17:35:05.457Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -102,14 +103,14 @@
               "RelativeDocumentMoniker": "Bank.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Bank.cs",
               "RelativeToolTip": "Bank.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAIAxwEkAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T04:06:02.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Transaction.cs",
               "RelativeDocumentMoniker": "Transaction.cs",
@@ -121,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
@@ -129,12 +130,11 @@
               "RelativeToolTip": "Menu.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAAAGAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T03:45:45.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T03:45:45.017Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Busher\\Desktop\\Github\\Suii\\BankApplicationV1.1\\BankApplication\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -142,8 +142,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T03:08:13.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T03:08:13.067Z"
             }
           ]
         }

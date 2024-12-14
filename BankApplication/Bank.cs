@@ -293,21 +293,21 @@ namespace BankApplication
                 }
                 catch (FormatException)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    
                     AnsiConsole.MarkupLine("[red]Invalid input. Please enter a valid number.[/]");
-                    Console.ResetColor();
+                   
                 }
                 catch (OverflowException)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                   
                     AnsiConsole.MarkupLine("[red]Number is too large.[/]");
-                    Console.ResetColor();
+                 
                 }
                 catch (Exception e)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                
                     AnsiConsole.MarkupLine("[red]Error: {e.Message}\n[/]");
-                    Console.ResetColor();
+                 
                 }
 
             }
