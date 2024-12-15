@@ -40,7 +40,7 @@ namespace BankApplication
             bool running = true;
             while (running)
             {
-                // Main Menu
+                
                 var choice = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
                         .Title("[cyan]What would you like to do?[/]")

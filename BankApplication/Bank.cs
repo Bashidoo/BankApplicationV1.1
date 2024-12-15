@@ -60,9 +60,17 @@ namespace BankApplication
         }
         public void AddUser(User<T> user)
         {
-            if (user == null)
+
+            var occupiedUser = Users.FirstOrDefault(x => x.Id == user.Id && x.CardNumber == user.CardNumber);
+
+            if (occupiedUser != null)
             {
-                AnsiConsole.MarkupLine($"[red]Adding User Operation failed[/]");
+              AnsiConsole.MarkupLine($"[red]CardnNumber or user ID is already taken![/]");
+                if (user == null)
+                {
+                  AnsiConsole.MarkupLine($"[red]Adding User Operation failed[/]");
+                   return;
+                }
                 return;
             }
 
@@ -264,8 +272,9 @@ namespace BankApplication
 
         static void CheckBalance(User<T> user)
         {
-            Console.WriteLine();
-            Console.WriteLine($"Current Balance: {user.Balance:C}");
+            
+            AnsiConsole.MarkupLine($"[blue]Current Balance: {user.Balance:C}[/]");
+           
         }
         public int GetValidatedNumberInput(string prompt)
         {

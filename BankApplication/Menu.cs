@@ -1,11 +1,12 @@
 ﻿using Spectre.Console;
+using FluentValidation;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using FluentValidation;
 
 namespace BankApplication
 {
@@ -104,21 +105,20 @@ namespace BankApplication
             var validator = new UserValidator<T>();
             var validatorResult = validator.Validate(newUser);
 
+            
+
             if (!validatorResult.IsValid)
             {
                 foreach (var error in validatorResult.Errors)
                 {
-                    AnsiConsole.MarkupLine($"[red]{validatorResult.Errors}");
+                    Console.WriteLine($"Field: {error.PropertyName}    Error:{error.ErrorMessage}");
                 }
                 return;
-            }
-
-           
+            }       
 
                 _bank.AddUser(newUser);
               
-              
-
+             
 
         }
 

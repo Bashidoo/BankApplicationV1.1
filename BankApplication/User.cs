@@ -63,7 +63,9 @@ namespace BankApplication
         public UserValidator()
         {
             RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required.");
-            RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");
+
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.")
+            .Matches("^[a-zA-Z ]*$").WithMessage("Name must contain only alphabets and spaces!");
             RuleFor(x => x.CardNumber).NotEmpty().WithMessage("CardNumber is required.");
             RuleFor(x => x.Balance).NotNull().WithMessage("Initial balance is required.");
             RuleFor(x => x.Balance).NotEmpty().WithMessage("Initial balance is required.");
