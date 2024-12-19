@@ -26,8 +26,8 @@ namespace BankApplication
         public int CreditScore { get; set; } 
 
         public bool IsAdmin { get; set; } // Add logic overrides menu to add remove Invoices/Users.
-
-        public bool InternetPurchase { get; set; } // Add Logic for next Project: E-Commerce. Needs to be enabled to be deserialzed by JSON. 
+        // One solution is to make Menu class abstract and therefor override it in Admin class. But that is inconvient since we want it based from User class using OOP principles. Maybe better to use encapsle the attribute.
+        public bool InternetPurchase { get; set; } // Add Logic for next Project: E-Commerce. Needs to be enabled to be deserialzed by JSON in the other project.  
 
 
         public User<T>? CurrentUserSession { get; set; }
