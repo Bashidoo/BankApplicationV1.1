@@ -23,11 +23,11 @@ namespace BankApplication
 
         public double Balance { get; set; }
 
-        public int CreditScore { get; set; } // Add logic. 
+        public int CreditScore { get; set; } 
 
-        public bool IsAdmin { get; set; } // Add logic
+        public bool IsAdmin { get; set; } // Add logic overrides menu to add remove Invoices/Users.
 
-        public bool InternetPurchase { get; set; } // Add Logic
+        public bool InternetPurchase { get; set; } // Add Logic for next Project: E-Commerce. Needs to be enabled to be deserialzed by JSON. 
 
 
         public User<T>? CurrentUserSession { get; set; }

@@ -289,9 +289,9 @@ namespace BankApplication
 
                     if (string.IsNullOrEmpty(input))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        
                         AnsiConsole.MarkupLine("[red]You have entered nothing.[/]");
-                        Console.ResetColor();
+                        
                     }
                     else
                     {
