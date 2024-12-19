@@ -9,7 +9,7 @@ This is a CRUD Bank Application with extra features implemented using Spectre.Co
 - Remove users
 - Add invoices
 - Remove invoices
-- Normal ATM functions
+- ATM functions
 - User login
 - Loan application
 
