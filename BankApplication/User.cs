@@ -45,6 +45,7 @@ namespace BankApplication
             Balance = balance;
             Password = password;
             CreditScore = 750;
+            IsAdmin = false;
         }
 
 

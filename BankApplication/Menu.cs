@@ -30,10 +30,12 @@ namespace BankApplication
             while (running)
             {
                 AnsiConsole.MarkupLine($"\n[green]Hello, {CurrentUserSession.Name}! Welcome to ABODAN Bank![/]");
-                var choice = AnsiConsole.Prompt(
-                    new SelectionPrompt<string>()
-                        .Title("[cyan]Select an option[/]:")
-                        .AddChoices(
+
+                var MenuOptions = new List<string>
+
+
+                    {
+                        
                             "Deposit",
                             "Withdraw",
                             "Display Balance",
@@ -43,7 +45,24 @@ namespace BankApplication
                             "Transaction History",
                             "Pay Invoice",
                             "Display All Invoices",
-                            "Exit/Logout"));
+                            "Exit/Logout"
+
+                    };
+                if (CurrentUserSession.IsAdmin == true)
+                {
+
+                    MenuOptions.Add ("[blue]ADMIN MENU:[/]:");
+                       MenuOptions.Add("Remove User");
+                       MenuOptions.Add("Add Invoice");
+                       MenuOptions.Add("Remove Invoice");
+                        
+                }
+
+                var choice = AnsiConsole.Prompt(
+                    new SelectionPrompt<string>()
+                    .Title("[cyan]Select an option[/]:")
+                    .AddChoices(MenuOptions));
+
 
                 switch (choice)
                 {
@@ -83,6 +102,23 @@ namespace BankApplication
                         AnsiConsole.MarkupLine("[green]Logging out... Goodbye![/]");
                         running = false;
                         break;
+                }
+                if (CurrentUserSession.IsAdmin == true)
+                {
+
+                    switch (choice)
+                    {
+                        case "Remove User":
+                            _bank.RemoveUser();
+                            break;
+                        case "Add Invoice":
+                            _bank.AddInvoice();
+                            break;
+
+                        case "Remove Invoice":
+                            _bank.RemoveInvoice();
+                            break;
+                    }
                 }
             }
         }

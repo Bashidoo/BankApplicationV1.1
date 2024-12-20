@@ -3,10 +3,11 @@
     {
       "Balance": 42069,
       "CardNumber": 2682424,
+      "CreditScore": 750,
       "Id": 20020105,
+      "IsAdmin": true,
       "Name": "Busher Abo Dan",
-      "Password": "AboDan",
-      "CreditScore": 750
+      "Password": "AboDan"
     },
     {
       "Balance": 42069,

@@ -84,8 +84,9 @@ namespace BankApplication
 
         }
 
-        public void RemoveUser(int id)
+        public void RemoveUser()
         {
+            int id = GetValidatedNumberInput("Enter ID of user to remove:");
             User<T>? user = GetUserByIdGeneric(id);
             if (user != null) 
             {
@@ -315,7 +316,7 @@ namespace BankApplication
                 catch (Exception e)
                 {
                 
-                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n[/]");
+                    AnsiConsole.MarkupLine($"[red]Error: {e.Message}\n[/]");
                  
                 }
 
@@ -395,7 +396,7 @@ namespace BankApplication
                 catch (Exception e)
                 {
                     
-                    AnsiConsole.MarkupLine("[red]Error: {e.Message}\n[/]");
+                    AnsiConsole.MarkupLine($"[red]Error: {e.Message}\n[/]");
                   
                 }
 
@@ -423,14 +424,30 @@ namespace BankApplication
                 
             }
         }
-        public void AddInvoice(User<T> CurrentUserSession)
+
+        public void RemoveInvoice()
+        {
+            double invoiceOCR = GetValidatedDoubleNumberInput("Please enter the OCR of desired Invoice to be removed:");
+            var invoicetoRemove = invoices.FirstOrDefault(x => x.OCR == invoiceOCR);
+
+            if (invoicetoRemove != null)
+            {
+                AnsiConsole.Markup($"[green] User removed![/]");
+                invoices.Remove(invoicetoRemove);
+            }
+            else
+            {
+                AnsiConsole.MarkupLine($"[red]No invoice have been found.[/]");
+            }
+        }
+        public void AddInvoice()
         {
             string companyname = GetValidatedStringInput("Type Company Name:");
             double bankgiro = GetValidatedDoubleNumberInput("Type BankGiro:");
             double amountTopay = GetValidatedDoubleNumberInput("Type amount to pay");
             double ocr = GetValidatedDoubleNumberInput("Type OCR or Reference number:");
 
-            var newInvoice = new Invoices(companyname,bankgiro, amountTopay, ocr);
+            var newInvoice = new Invoices(companyname,bankgiro,ocr , amountTopay);
 
             var checkinvoice = invoices.FirstOrDefault(x => x.OCR == ocr);
 
