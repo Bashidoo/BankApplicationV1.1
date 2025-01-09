@@ -55,8 +55,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-01T13:23:31.123Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -69,8 +68,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T13:23:18.465Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -82,8 +80,7 @@
               "RelativeToolTip": "User.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAA1wCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T03:01:18.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T03:01:18.295Z"
             },
             {
               "$type": "Document",
@@ -95,8 +92,7 @@
               "RelativeToolTip": "Invoices.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwB0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T17:35:05.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T17:35:05.457Z"
             },
             {
               "$type": "Document",
@@ -108,8 +104,7 @@
               "RelativeToolTip": "Bank.cs",
               "ViewState": "AgIAAD0BAAAAAAAAAAAAADsBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T04:06:02.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T04:06:02.033Z"
             },
             {
               "$type": "Document",
@@ -121,8 +116,7 @@
               "RelativeToolTip": "Transaction.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T13:59:33.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-07T13:59:33.466Z"
             },
             {
               "$type": "Document",
@@ -134,8 +128,7 @@
               "RelativeToolTip": "Menu.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAIBWwD8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T03:45:45.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T03:45:45.017Z"
             },
             {
               "$type": "Document",
@@ -145,7 +138,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Busher\\Desktop\\Github\\E-Commerce\\BankApplicationV1.1\\BankApplication\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAAEwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-16T03:08:13.067Z",
               "EditorCaption": ""
