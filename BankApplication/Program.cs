@@ -2,6 +2,8 @@
 using Spectre.Console.Rendering;
 using System.Text.Json;
 using Spectre.Console;
+using Microsoft.EntityFrameworkCore;
+
 
 
 
@@ -97,4 +99,18 @@ namespace BankApplication
             }
         }
     }
+   
+
+public class BankDbContext : DbContext
+    {
+        public DbSet<User<int>> Users { get; set; }
+        public DbSet<Invoices> Invoices { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=LAPTOP-6O16HQII\SQLEXPRESS;Database=busherMonday;Trusted_Connection=True;TrustServerCertificate=True;");
+
+        }
+    }
+
 }
